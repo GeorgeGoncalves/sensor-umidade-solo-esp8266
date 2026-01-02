@@ -1,16 +1,17 @@
-# 🌱 Sensor de Umidade do Solo com ESP8266
+# 🌱 Sensor de Umidade do Solo com ESP8266 (Wi-Fi)
 
-Projeto simples de **sensor de umidade do solo** utilizando o **ESP8266 (NodeMCU)**, desenvolvido com foco em **aprendizado e prática** para iniciantes em eletrônica e IoT.
+Projeto de **sensor de umidade do solo** utilizando **ESP8266 (NodeMCU)**, desenvolvido com foco em **aprendizado prático** em eletrônica, programação e Internet das Coisas (IoT).
 
-Este projeto realiza a leitura da umidade do solo através de um sensor analógico e exibe os valores no **Monitor Serial** da Arduino IDE.
+O sistema realiza a leitura da umidade do solo, converte o valor para **porcentagem** e exibe os dados em uma **página web acessível via Wi-Fi**, com indicação visual do estado do solo.
 
 ---
 
-## 📚 Objetivo do Projeto
+## 🎯 Objetivo do Projeto
 
-- Aprender a utilizar o ESP8266
-- Realizar leitura analógica com sensor de umidade do solo
-- Entender o funcionamento básico de sensores
+- Aprender a utilizar o ESP8266 com Wi-Fi
+- Realizar leitura analógica de sensores
+- Converter dados brutos em informação útil (%)
+- Criar um servidor web simples com HTML e CSS
 - Dar os primeiros passos em projetos de IoT
 
 ---
@@ -35,12 +36,41 @@ Este projeto realiza a leitura da umidade do solo através de um sensor analógi
 
 ---
 
-## 🔍 Funcionamento
+## 💻 Funcionamento do Sistema
 
-- O sensor mede a resistência elétrica do solo
+1. O ESP8266 conecta à rede Wi-Fi
+2. Cria um servidor web na porta 80
+3. Lê o valor analógico do sensor de umidade
+4. Converte o valor para porcentagem (0 a 100%)
+5. Exibe as informações em uma página web
+
+---
+
+## 🌈 Classificação da Umidade do Solo
+
+| Umidade (%) | Estado do Solo | Cor       |
+|------------|--------------|------------- |
+|   < 30%    |      Seco    | 🔴 Vermelho |
+| 31% – 80%  | Normal | 🟤 Marrom (terra) |
+| 81% – 100% | Úmido        |   🟢 Verde  |
+
+---
+
+## 📊 Conversão do Sensor
+
+O valor lido pelo `analogRead()` varia de **0 a 1023**.  
+Esse valor é convertido para porcentagem usando a função `map()`.
+
 - Solo seco → valor alto
 - Solo úmido → valor baixo
-- Os valores são exibidos no Monitor Serial a cada 2 segundos
+
+---
+
+## 🌐 Interface Web
+
+- Página acessível pelo navegador
+- Exibição da umidade em porcentagem
+- Cores dinâmicas conforme o estado do solo
 
 ---
 
