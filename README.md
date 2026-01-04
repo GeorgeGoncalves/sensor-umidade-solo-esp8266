@@ -24,7 +24,40 @@ O sistema realiza a leitura da umidade do solo, converte o valor para **porcenta
 
 ---
 
-## 🔌 Ligações do Circuito
+## ▶️ Como clonar e executar o projeto
+
+### 1️⃣ Clonar o repositório
+
+No terminal, execute:
+
+```bash
+git clone https://github.com/SEU_USUARIO/sensor-umidade-solo-esp8266.git
+```
+
+Depois, entre na pasta do projeto:
+
+```bash
+cd sensor-umidade-solo-esp8266
+```
+
+2️⃣ Abrir o projeto na Arduino IDE
+
+- Abra a Arduino IDE
+
+- Clique em Arquivo → Abrir
+
+- Selecione o arquivo .ino do projeto
+
+3️⃣ Configurar o Wi-Fi
+
+No código, altere as linhas abaixo com o nome e a senha da sua rede Wi-fI:
+
+const char* ssid = "SEU_WIFI";
+const char* password = "SUA_SENHA";
+
+4️⃣ Conectar o hardware
+
+Faça as ligações do sensor de umidade:
 
 | Sensor | ESP8266 |
 |------  |-------- |
@@ -32,7 +65,26 @@ O sistema realiza a leitura da umidade do solo, converte o valor para **porcenta
 | GND    |   GND   |
 | AO     |   A0    |
 
-⚠️ **Atenção:** Utilize apenas a saída analógica (AO) do sensor.
+5️⃣ Fazer upload do código
+
+- Selecione a placa correta em Ferramentas → Placa (ex: NodeMCU 1.0)
+
+- Selecione a porta correta
+
+- Clique em Upload
+
+6️⃣ Acessar o projeto no navegador
+
+- Abra o Monitor Serial (9600 baud)
+
+- Copie o IP exibido
+
+- No navegador (mesma rede Wi-Fi), acesse:
+
+http://IP_DO_ESP
+
+Pronto 🎉
+A página com a umidade do solo será exibida no navegador.
 
 ---
 
